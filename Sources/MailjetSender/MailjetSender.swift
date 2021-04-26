@@ -1,5 +1,8 @@
 import Foundation
 import ZIPFoundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// Sends an email using the mailjet.com service.
 /// Only plain text emails are supported (HTML will not be parsed).
