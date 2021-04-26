@@ -86,7 +86,7 @@ public class MailjetSender {
     ) -> URLRequest? {
         assert(!message.isEmpty, "The message field can not be empty as it will be rejected by the service.")
         
-        let loginString = String(format: "%@:%@", publicKey, privateKey)
+        let loginString = "\(publicKey):\(privateKey)"
         guard let loginData = loginString.data(using: String.Encoding.utf8) else { return nil }
         let authString = loginData.base64EncodedString()
         guard let url = URL(string: "https://api.mailjet.com/v3.1/send") else { return nil }
